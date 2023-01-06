@@ -14,3 +14,24 @@
   display: flex;
   gap: 8px;
 }
+
+.btn-arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fade {
+  font-size: 1.6rem;
+  padding: 0 0.5rem;
+  color: #040404;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.arrow {
+  font-size: 1.6rem;
+  padding: 0 0.5rem;
+  color: #074684;
+  cursor: pointer;
+  font-weight: bold;
+}

@@ -13,9 +13,14 @@ const PaginationList = () => {
     ) {
         pageNumberList.push(i);
     }
+
+    console.log({ modifierState });
+    console.log(PageItem);
+
+
     return (
         <div className="pagination-container">
-            <Pagination size="sm">
+            <Pagination size="sm" className="btn-arrows">
                 <div className="select-container">
                     <span>Show</span>
                     <select
@@ -31,6 +36,19 @@ const PaginationList = () => {
                     </select>
                     <span>Entries</span>
                 </div>
+                <div>
+                    <span
+                        className={`${modifierState.currentPage === 1 ? "fade" : "arrow"}`}
+                        onClick={() => {
+                            dispatchModifiers({
+                                type: "CURRENT_PAGE",
+                                payload: modifierState.currentPage > 1 ? modifierState.currentPage - 1 : 1,
+                            });
+                        }}
+                    >
+                        <span title="go back">{"<"}</span>
+                    </span>
+                </div>
                 {pageNumberList.map((number) => {
                     return (
                         <PageItem
@@ -44,6 +62,20 @@ const PaginationList = () => {
                         </PageItem>
                     );
                 })}
+
+                <div>
+                    <span
+                        className={`${modifierState.currentPage === pageNumberList.length ? "fade" : "arrow"}`}
+                        onClick={() => {
+                            dispatchModifiers({
+                                type: "CURRENT_PAGE",
+                                payload: modifierState.currentPage < pageNumberList.length ? modifierState.currentPage + 1 : pageNumberList.length,
+                            });
+                        }}
+                    >
+                        <span title="go forward">{">"}</span>
+                    </span>
+                </div>
             </Pagination>
         </div>
     )
