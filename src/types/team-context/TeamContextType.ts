@@ -50,7 +50,8 @@ type ModifierActionType =
   | { type: "LOADING"; payload: boolean }
   | { type: "SEARCH_QUERY"; payload: string }
   | { type: "SORT"; payload: boolean }
-  | { type: "CURRENT_PAGE"; payload: number };
+  | { type: "CURRENT_PAGE"; payload: number }
+  | { type: "TEAMS_PER_PAGE"; payload: number };
 
 type TeamContextType = {
   teams: TeamsType[];

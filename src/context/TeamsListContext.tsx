@@ -29,6 +29,8 @@ const TeamsListContext = ({ children }: TeamsListContextType) => {
                 return { ...state, sort: action.payload };
             case "CURRENT_PAGE":
                 return { ...state, currentPage: action.payload };
+            case "TEAMS_PER_PAGE":
+                return {...state, teamsPerPage: action.payload};
             default:
                 return state;
         }
